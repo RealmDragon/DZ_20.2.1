@@ -1,0 +1,29 @@
+{% extends 'catalog/home.html' %}
+{% block content %}
+{% load my_tags %}
+
+
+<div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3 d-flex justify-content-center align-items-center">
+          <img src ='{{ product.image | media_filter }}' class="img-fluid" alt="{{ product.name }}">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>Подробнее о товаре:</h2>
+            <p class="card-text">Наименование: {{ product.name }}</p>
+            <p class="card-text">Категория товара: {{ product.category }}</p>
+            <p class="card-text">Цена товара: {{ product.price }} ₽ </p>
+            <p class="card-text">Описание: {{ product.description }} </p>
+            <p class="card-text">Дата создания: {{ product.created_at }} </p>
+            <p class="card-text">Дата обновления: {{ product.updated_at }} </p>
+            <p class="card-text">Дата производства продукта: {{ product.updated_at }} </p>
+          <a class="btn btn-primary" href="{%url 'catalog:product_list'%}" role="button">На главную</a>
+
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}
